@@ -14,9 +14,17 @@ let integers: [Int] = [2, 5, 4, 12, 7]
  сумма которых равна переданному значению target
  */
 func findTarget(_ target: Int, in array: [Int]) -> [Array<Int>.Index] {
-    // Ваша реализация
-
-    return [0, 1]
+    
+    var arr: [(Int, Int)] = []
+    array.enumerated().forEach { (offset, element) in
+        array.enumerated().enumerated().forEach({ (offset2, element2) in
+            if offset + offset2 == target {
+                arr.append((offset, offset2))
+            }
+        })
+    }
+    
+    return arr
 }
 
 // Ожидаемый ответ [2, 3]
