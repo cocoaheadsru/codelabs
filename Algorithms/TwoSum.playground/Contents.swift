@@ -15,6 +15,22 @@ let integers: [Int] = [2, 5, 4, 12, 7]
  */
 func findTarget(_ target: Int, in array: [Int]) -> [Array<Int>.Index] {
     // Ваша реализация
+    
+    
+    //var myDictionary: Dictionary<Int, Int> = []
+    
+    for i in 0..<(array.count - 1) {
+        
+      let number = array[i]
+        
+        for j in i..<(array.count - 1) {
+            
+            if array[i] + array[j] == target {
+                return [i, j]
+            }
+        }
+        
+    }
 
     return [0, 1]
 }
