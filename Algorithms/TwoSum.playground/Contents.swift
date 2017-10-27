@@ -15,7 +15,9 @@ let integers: [Int] = [2, 5, 4, 12, 7]
  */
 func findTarget(_ target: Int, in array: [Int]) -> [Array<Int>.Index] {
     // Ваша реализация
-
+    
+    
+    
     return [0, 1]
 }
 
