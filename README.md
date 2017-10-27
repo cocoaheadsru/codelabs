@@ -2,4 +2,3 @@
 
 * [Algorithms](Algorithms)
 * [SwiftStyle](SwiftStyle)
-
