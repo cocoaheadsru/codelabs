@@ -120,7 +120,7 @@ class HomeWeatherViewController: UIViewController {
       stateLabel.text = st
     }
     if let image = photoResources[(currentForecast?.imageName) ?? ""] {
-      imageWeather.image = image
+      imageWeatherView.image = image
     }
   }
 }
