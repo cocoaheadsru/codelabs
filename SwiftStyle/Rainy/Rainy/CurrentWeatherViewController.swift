@@ -31,8 +31,7 @@ class CurrentWeatherViewController: UIViewController, CLLocationManagerDelegate 
         }
     }
     
-    private enum constants {
-        static let weatherUrl = "http://api.openweathermap.org/data/2.5/weather"
+    private enum classConstants {
         static let trafficUrl = "http://www.mapquestapi.com/traffic/v2/incidents"
     }
     
@@ -97,7 +96,7 @@ class CurrentWeatherViewController: UIViewController, CLLocationManagerDelegate 
     }
     
     private func getTrafficInformation(){
-        Alamofire.request(constants.trafficUrl,
+        Alamofire.request(classConstants.trafficUrl,
                           parameters: ["boundingBox": "\(myCoords.lat),\(myCoords.lon),\(myCoords.lat - 1),\(myCoords.lon - 1)",
                                        "key": ""])
             .responseJSON{response in

@@ -21,12 +21,10 @@ class HomeWeatherViewController: UIViewController {
     private var setts = UserDefaults.standard
     private var cityName: String{
         get{
-            if let name = setts.value(forKey: "cityName"){
-                return name as! String
+            guard let name = setts.value(forKey: constants.cityName) as? String else {
+                return constants.parebrik
             }
-            else{
-                return "Saint Petersburg"
-            }
+            return name
         }
     }
     private var currentForecast: WeatherForecast? {
@@ -47,7 +45,7 @@ class HomeWeatherViewController: UIViewController {
 
     
     private func updateCurrentForecast(){
-        Alamofire.request("http://api.openweathermap.org/data/2.5/weather",
+        Alamofire.request(constants.weatherUrl,
                           parameters: ["q": cityName,
                                        "APPID": "","units":"metric"])
             .responseJSON{response in
@@ -99,20 +97,4 @@ class HomeWeatherViewController: UIViewController {
         }
         imageWeatherView.image = photoResources[(currentForecast?.imageName)!]
     }
-    
-    
-    
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

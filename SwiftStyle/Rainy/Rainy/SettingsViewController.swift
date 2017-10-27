@@ -14,7 +14,7 @@ class SettingsViewController: UIViewController {
     
     @IBAction func saveButtonPressed(_ sender: Any) {
         self.view.endEditing(true)
-        setts.set(textField.text!, forKey: "cityName")
+        setts.set(textField.text!, forKey: constants.cityName)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -24,11 +24,11 @@ class SettingsViewController: UIViewController {
     private var setts = UserDefaults.standard
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let name = setts.value(forKey: "cityName"){
+        if let name = setts.value(forKey: constants.cityName){
             textField.text = String(describing: name)
         }
         else{
-            textField.text = "Saint Petersburg"
+            textField.text = constants.parebrik
         }
     }
 
