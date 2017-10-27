@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		45B0D2581FA3329E00A17CC9 /* WeathewIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B0D2571FA3329E00A17CC9 /* WeathewIcons.swift */; };
 		7B11FC3E1DB53A6900FA6122 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B11FC3D1DB53A6900FA6122 /* AppDelegate.swift */; };
 		7B11FC401DB53A6900FA6122 /* CurrentWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B11FC3F1DB53A6900FA6122 /* CurrentWeatherViewController.swift */; };
 		7B11FC421DB53A6900FA6122 /* HomeWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B11FC411DB53A6900FA6122 /* HomeWeatherViewController.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		45B0D2571FA3329E00A17CC9 /* WeathewIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeathewIcons.swift; sourceTree = "<group>"; };
 		7B11FC3A1DB53A6900FA6122 /* Rainy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rainy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B11FC3D1DB53A6900FA6122 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B11FC3F1DB53A6900FA6122 /* CurrentWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +58,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		45B0D2541FA3322100A17CC9 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				45B0D2571FA3329E00A17CC9 /* WeathewIcons.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		7B11FC311DB53A6900FA6122 = {
 			isa = PBXGroup;
 			children = (
@@ -82,6 +92,7 @@
 				7B11FC411DB53A6900FA6122 /* HomeWeatherViewController.swift */,
 				7B6469FA1DC643AE00AA44F2 /* SettingsViewController.swift */,
 				7B11FC531DB540E900FA6122 /* WeatherForecast.swift */,
+				45B0D2541FA3322100A17CC9 /* Helpers */,
 				7B11FC431DB53A6900FA6122 /* Main.storyboard */,
 				7B11FC461DB53A6900FA6122 /* Assets.xcassets */,
 				7B11FC481DB53A6900FA6122 /* LaunchScreen.storyboard */,
@@ -146,7 +157,6 @@
 				TargetAttributes = {
 					7B11FC391DB53A6900FA6122 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = KH2KDZEEE3;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
@@ -245,6 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B11FC421DB53A6900FA6122 /* HomeWeatherViewController.swift in Sources */,
+				45B0D2581FA3329E00A17CC9 /* WeathewIcons.swift in Sources */,
 				7B11FC541DB540E900FA6122 /* WeatherForecast.swift in Sources */,
 				7B11FC3E1DB53A6900FA6122 /* AppDelegate.swift in Sources */,
 				7B11FC401DB53A6900FA6122 /* CurrentWeatherViewController.swift in Sources */,
@@ -387,7 +398,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = KH2KDZEEE3;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/SwiftOpenWeatherMapAPI",
@@ -408,7 +419,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = KH2KDZEEE3;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/SwiftOpenWeatherMapAPI",

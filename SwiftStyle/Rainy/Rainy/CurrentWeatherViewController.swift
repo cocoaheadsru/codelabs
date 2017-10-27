@@ -11,8 +11,6 @@ import CoreLocation
 import Alamofire
 import SwiftyJSON
 
-
-
 struct coords{
     var lat: Double = 0
     var lon: Double = 0
@@ -27,55 +25,35 @@ class CurrentWeatherViewController: UIViewController, CLLocationManagerDelegate 
     @IBOutlet weak var imageWeather: UIImageView!
     
     private var locationManager: CLLocationManager!
-  // private let constrain: Constants = Constants()
     private var currentForecast: WeatherForecast? {
         didSet{
             reloadUI()
         }
     }
     
-    private let photoResources: [String: UIImage] = [
-        "01d":#imageLiteral(resourceName: "sunny"),
-        "01n":#imageLiteral(resourceName: "moon"),
-        "02d":#imageLiteral(resourceName: "sunny_clouds"),
-        "02n":#imageLiteral(resourceName: "moodCloud"),
-        "03d":#imageLiteral(resourceName: "clouds"),
-        "03n":#imageLiteral(resourceName: "clouds"),
-        "04d":#imageLiteral(resourceName: "clouds"),
-        "04n":#imageLiteral(resourceName: "clouds"),
-        "09d":#imageLiteral(resourceName: "cloud_rain"),
-        "09n":#imageLiteral(resourceName: "cloud_rain"),
-        "10d":#imageLiteral(resourceName: "sunCloudRain"),
-        "10n":#imageLiteral(resourceName: "moonrain"),
-        "11d":#imageLiteral(resourceName: "storm"),
-        "11n":#imageLiteral(resourceName: "storm"),
-        "13d":#imageLiteral(resourceName: "CloudSnow"),
-        "13n":#imageLiteral(resourceName: "CloudSnow"),
-        "50d":#imageLiteral(resourceName: "fog"),
-        "50n":#imageLiteral(resourceName: "fog")]
-    
+    private enum constants {
+        static let weatherUrl = "http://api.openweathermap.org/data/2.5/weather"
+        static let trafficUrl = "http://www.mapquestapi.com/traffic/v2/incidents"
+    }
     
     private var myCoords: coords = coords()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
-        if(CLLocationManager.authorizationStatus() == .notDetermined){
-            locationManager.requestWhenInUseAuthorization()
-        }
-        
-        if CLLocationManager.locationServicesEnabled(){
-            locationManager.startUpdatingLocation()
-        }
+
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
-            self.updateCurrentForecast()
+            self.updateForecast()
         })
     }
 
     @IBAction func reloadButtonPressed(_ sender: AnyObject) {
+        updateForecast()
+    }
+    
+    private func updateForecast() {
         if(CLLocationManager.authorizationStatus() == .notDetermined){
             locationManager.requestWhenInUseAuthorization()
         }
@@ -86,21 +64,23 @@ class CurrentWeatherViewController: UIViewController, CLLocationManagerDelegate 
         updateCurrentForecast()
     }
     
-    
     internal func locationManager(_ manager: CLLocationManager,
                          didFailWithError error: Error) {
         print("error: ", error)
     }
     
     internal func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        self.myCoords.lat = locations[0].coordinate.latitude
-        self.myCoords.lon = locations[0].coordinate.longitude
+        guard let lat = locations.first?.coordinate.latitude, let lon = locations.first?.coordinate.longitude else {
+            return
+        }
+        self.myCoords.lat = lat
+        self.myCoords.lon = lon
         locationManager.stopUpdatingLocation()
     }
 
 
     private func updateCurrentForecast(){
-      Alamofire.request("http://api.openweathermap.org/data/2.5/weather",method: .get,parameters: ["lat":myCoords.lat,"lon": myCoords.lon,"APPID": "","units":"metric"],encoding: JSONEncoding.default,headers: nil).responseJSON{response in
+      Alamofire.request(constants.weatherUrl, method: .get, parameters: ["lat":myCoords.lat,"lon": myCoords.lon,"APPID": "","units":"metric"],encoding: JSONEncoding.default,headers: nil).responseJSON{response in
                 guard response.result.isSuccess else{
                     return
                 }
@@ -117,7 +97,7 @@ class CurrentWeatherViewController: UIViewController, CLLocationManagerDelegate 
     }
     
     private func getTrafficInformation(){
-        Alamofire.request("http://www.mapquestapi.com/traffic/v2/incidents",
+        Alamofire.request(constants.trafficUrl,
                           parameters: ["boundingBox": "\(myCoords.lat),\(myCoords.lon),\(myCoords.lat - 1),\(myCoords.lon - 1)",
                                        "key": ""])
             .responseJSON{response in
@@ -145,23 +125,14 @@ class CurrentWeatherViewController: UIViewController, CLLocationManagerDelegate 
         return currentTime
     }
     
-    
-
     private func reloadUI(){
         timeLabel.text = "Updated: \(currentForecast!.timeStamp)"
-        if let temp = currentForecast?.currentWeatherTempurature{
-            temperatureLabel.text = "\(temp)℃"
-        }
-        if let city = currentForecast?.cityName{
-            cityNameLabel.text = city
-        }
-        if let wi = currentForecast?.wind{
-            windLabel.text = "\(wi)"
-        }
-        if let st = currentForecast?.stateWeather{
-            stateLabel.text = st
-        }
-        imageWeather.image = photoResources[(currentForecast?.imageName)!]
+        guard let forecast = currentForecast else { return }
+        temperatureLabel.text = String(describing: forecast.currentWeatherTempurature)
+        cityNameLabel.text = forecast.cityName
+        windLabel.text = String(describing: forecast.wind)
+        stateLabel.text = forecast.stateWeather
+        imageWeather.image = photoResources[forecast.imageName]
     }
 }
 

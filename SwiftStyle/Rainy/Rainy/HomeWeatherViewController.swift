@@ -28,36 +28,12 @@ class HomeWeatherViewController: UIViewController {
                 return "Saint Petersburg"
             }
         }
-    }//"Saint Petersburg"
-//    private let constrain: Constants = Constants()
+    }
     private var currentForecast: WeatherForecast? {
         didSet{
             reloadUI()
         }
     }
-    
-    private let photoResources: [String: UIImage] = [
-        "01d":#imageLiteral(resourceName: "sunny"),
-        "01n":#imageLiteral(resourceName: "moon"),
-        "02d":#imageLiteral(resourceName: "sunny_clouds"),
-        "02n":#imageLiteral(resourceName: "moodCloud"),
-        "03d":#imageLiteral(resourceName: "clouds"),
-        "03n":#imageLiteral(resourceName: "clouds"),
-        "04d":#imageLiteral(resourceName: "clouds"),
-        "04n":#imageLiteral(resourceName: "clouds"),
-        "09d":#imageLiteral(resourceName: "cloud_rain"),
-        "09n":#imageLiteral(resourceName: "cloud_rain"),
-        "10d":#imageLiteral(resourceName: "sunCloudRain"),
-        "10n":#imageLiteral(resourceName: "moonrain"),
-        "11d":#imageLiteral(resourceName: "storm"),
-        "11n":#imageLiteral(resourceName: "storm"),
-        "13d":#imageLiteral(resourceName: "CloudSnow"),
-        "13n":#imageLiteral(resourceName: "CloudSnow"),
-        "50d":#imageLiteral(resourceName: "fog"),
-        "50n":#imageLiteral(resourceName: "fog")
-    ]
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
