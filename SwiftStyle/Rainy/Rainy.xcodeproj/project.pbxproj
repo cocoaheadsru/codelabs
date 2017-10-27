@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		025F4DC31FA32DAE00635F83 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025F4DC21FA32DAE00635F83 /* Constants.swift */; };
 		7B11FC3E1DB53A6900FA6122 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B11FC3D1DB53A6900FA6122 /* AppDelegate.swift */; };
 		7B11FC401DB53A6900FA6122 /* CurrentWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B11FC3F1DB53A6900FA6122 /* CurrentWeatherViewController.swift */; };
 		7B11FC421DB53A6900FA6122 /* HomeWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B11FC411DB53A6900FA6122 /* HomeWeatherViewController.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		025F4DC21FA32DAE00635F83 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7B11FC3A1DB53A6900FA6122 /* Rainy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rainy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B11FC3D1DB53A6900FA6122 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B11FC3F1DB53A6900FA6122 /* CurrentWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherViewController.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 		7B11FC3C1DB53A6900FA6122 /* Rainy */ = {
 			isa = PBXGroup;
 			children = (
+				025F4DC21FA32DAE00635F83 /* Constants.swift */,
 				7B11FC3D1DB53A6900FA6122 /* AppDelegate.swift */,
 				7B11FC3F1DB53A6900FA6122 /* CurrentWeatherViewController.swift */,
 				7B11FC411DB53A6900FA6122 /* HomeWeatherViewController.swift */,
@@ -249,6 +252,7 @@
 				7B11FC3E1DB53A6900FA6122 /* AppDelegate.swift in Sources */,
 				7B11FC401DB53A6900FA6122 /* CurrentWeatherViewController.swift in Sources */,
 				7B6469FB1DC643AE00AA44F2 /* SettingsViewController.swift in Sources */,
+				025F4DC31FA32DAE00635F83 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
