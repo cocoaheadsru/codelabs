@@ -19,19 +19,19 @@ class HomeWeatherViewController: UIViewController {
   @IBOutlet weak var cityNameLabel: UILabel!
   
   private var setts = UserDefaults.standard
-  private var cityName: String{
-    get{
-      if let name = setts.value(forKey: "cityName"){
+  private var cityName: String {
+    get {
+      if let name = setts.value(forKey: "cityName") {
         return name as? String ?? ""
       }
-      else{
+      else {
         return "Saint Petersburg"
       }
     }
   }//"Saint Petersburg"
 //  private let constrain: Constants = Constants()
   private var currentForecast: WeatherForecast? {
-    didSet{
+    didSet {
       reloadUI()
     }
   }
@@ -66,12 +66,12 @@ class HomeWeatherViewController: UIViewController {
     updateCurrentForecast()
   }
   
-  private func updateCurrentForecast(){
+  private func updateCurrentForecast() {
     Alamofire.request("http://api.openweathermap.org/data/2.5/weather",
               parameters: ["q": cityName,
                      "APPID": "","units":"metric"])
-      .responseJSON{response in
-        guard response.result.isSuccess else{
+      .responseJSON {response in
+        guard response.result.isSuccess else {
           return
         }
         let json = JSON(response.result.value!)
@@ -86,35 +86,35 @@ class HomeWeatherViewController: UIViewController {
     }
   }
   
-  private func getCurrentTime() -> String{
+  private func getCurrentTime() -> String {
     let date = NSDate()
     let calendar = NSCalendar.current
     var currentTime: String
     let components = calendar.dateComponents([.hour, .minute], from: date as Date!)
     var hour: String = String(describing: components.hour!)
     var minute: String = String(describing: components.minute!)
-    if hour.characters.count == 1{
+    if hour.characters.count == 1 {
       hour = "0" + hour
     }
-    if(minute.characters.count == 1){
+    if(minute.characters.count == 1) {
       minute = "0" + minute
     }
     currentTime = "\(hour):\(minute)"
     return currentTime
   }
   
-  private func reloadUI(){
+  private func reloadUI() {
     timeLabel.text = "Updated: \(currentForecast!.timeStamp)"
-    if let temp = currentForecast?.currentWeatherTempurature{
+    if let temp = currentForecast?.currentWeatherTempurature {
       temperatureLabel.text = "\(temp)℃"
     }
-    if let city = currentForecast?.cityName{
+    if let city = currentForecast?.cityName {
       cityNameLabel.text = city
     }
-    if let wi = currentForecast?.wind{
+    if let wi = currentForecast?.wind {
       windLabel.text = "\(wi)"
     }
-    if let st = currentForecast?.stateWeather{
+    if let st = currentForecast?.stateWeather {
       stateLabel.text = st
     }
     imageWeatherView.image = photoResources[(currentForecast?.imageName)!]

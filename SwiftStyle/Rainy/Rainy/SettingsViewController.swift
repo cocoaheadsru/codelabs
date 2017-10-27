@@ -23,10 +23,10 @@ class SettingsViewController: UIViewController {
   private var setts = UserDefaults.standard
   override func viewDidLoad() {
     super.viewDidLoad()
-    if let name = setts.value(forKey: "cityName"){
+    if let name = setts.value(forKey: "cityName") {
       textField.text = String(describing: name)
     }
-    else{
+    else {
       textField.text = "Saint Petersburg"
     }
   }
