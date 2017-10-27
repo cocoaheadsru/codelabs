@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 class WeatherForecast{
     var currentWeatherTempurature: Double?
     var timeStamp: String
@@ -20,9 +19,10 @@ class WeatherForecast{
     var cityName: String?
     var stateWeather: String?
     
-    init(currentWeatherTempurature: Double?,
+    init(currentWeatherTempurature: Double?, 
          timeStamp: String, imageName: String,
-         locationCoordinates: (Double, Double)?, humidity: Int?, pressure: Int?,
+         locationCoordinates: (Double, Double)?,
+         humidity: Int?, pressure: Int?,
          wind: Double?, cityName: String?, stateWeather: String?) {
         
         self.currentWeatherTempurature = currentWeatherTempurature
