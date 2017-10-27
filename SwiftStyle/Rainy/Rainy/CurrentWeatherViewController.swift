@@ -52,7 +52,6 @@ class CurrentWeatherViewController: UIViewController, CLLocationManagerDelegate 
     "50d":#imageLiteral(resourceName: "fog"),
     "50n":#imageLiteral(resourceName: "fog")]
   
-  
   private var myCoords: coords = coords()
   
   override func viewDidLoad() {
@@ -81,12 +80,6 @@ class CurrentWeatherViewController: UIViewController, CLLocationManagerDelegate 
       locationManager.startUpdatingLocation()
     }
     updateCurrentForecast()
-  }
-  
-  
-  internal func locationManager(_ manager: CLLocationManager,
-             didFailWithError error: Error) {
-    print("error: ", error)
   }
   
   internal func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

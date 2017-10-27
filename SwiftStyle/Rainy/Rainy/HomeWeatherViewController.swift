@@ -104,7 +104,9 @@ class HomeWeatherViewController: UIViewController {
   }
   
   private func reloadUI() {
-    timeLabel.text = "Updated: \(currentForecast!.timeStamp)"
+    if let timeStamp = currentForecast?.timeStamp {
+      timeLabel.text = "Updated: \(timeStamp)"
+    }
     if let temp = currentForecast?.currentWeatherTempurature {
       temperatureLabel.text = "\(temp)℃"
     }
@@ -117,7 +119,9 @@ class HomeWeatherViewController: UIViewController {
     if let st = currentForecast?.stateWeather {
       stateLabel.text = st
     }
-    imageWeatherView.image = photoResources[(currentForecast?.imageName)!]
+    if let image = photoResources[(currentForecast?.imageName) ?? ""] {
+      imageWeather.image = image
+    }
   }
 }
 
