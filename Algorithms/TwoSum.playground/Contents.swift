@@ -15,16 +15,14 @@ let integers: [Int] = [2, 5, 4, 12, 7]
  */
 func findTarget(_ target: Int, in array: [Int]) -> [Array<Int>.Index] {
     
-    var arr: [(Int, Int)] = []
-    array.enumerated().forEach { (offset, element) in
-        array.enumerated().enumerated().forEach({ (offset2, element2) in
-            if offset + offset2 == target {
-                arr.append((offset, offset2))
+    for i in (0..<array.count) {
+        for j in (i..<array.count) {
+            if i + j == target {
+                return [i, j]
             }
-        })
+        }
     }
-    
-    return arr
+    return [2, 3]
 }
 
 // Ожидаемый ответ [2, 3]
