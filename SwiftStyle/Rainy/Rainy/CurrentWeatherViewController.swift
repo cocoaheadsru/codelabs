@@ -141,11 +141,11 @@ class CurrentWeatherViewController: UIViewController, CLLocationManagerDelegate 
     currentTime = "\(hour):\(minute)"
     return currentTime
   }
-  
-  
 
   private func reloadUI(){
-    timeLabel.text = "Updated: \(currentForecast!.timeStamp)"
+    if let timeStamp = currentForecast?.timeStamp{
+      timeLabel.text = "Updated: \(timeStamp)"
+    }
     if let temp = currentForecast?.currentWeatherTempurature{
       temperatureLabel.text = "\(temp)℃"
     }
@@ -158,7 +158,9 @@ class CurrentWeatherViewController: UIViewController, CLLocationManagerDelegate 
     if let st = currentForecast?.stateWeather{
       stateLabel.text = st
     }
-    imageWeather.image = photoResources[(currentForecast?.imageName)!]
+    if let image = photoResources[(currentForecast?.imageName) ?? ""]{
+      imageWeather.image = image
+    }
   }
 }
 
