@@ -19,6 +19,7 @@
 		7B6889F11DC4F2400014AC1D /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B6889F01DC4F2400014AC1D /* SwiftyJSON.framework */; };
 		7BDCE5CE1DBBBFE100167625 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BDCE5CD1DBBBFE100167625 /* Alamofire.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		8C1C6795E2AFA6AA9F1CF7C5 /* Pods_Rainy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4EA8E15D92D5168D0F28BAE /* Pods_Rainy.framework */; };
+		E10D115B1FA32EC900649D1F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10D115A1FA32EC900649D1F /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		7BDCE5CD1DBBBFE100167625 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Rainy-aldgivkqveeobkekmqalrgpntaib/Build/Products/Debug-iphonesimulator/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
 		8EBFC4D7F526D8ADA40CD634 /* Pods-Rainy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rainy.release.xcconfig"; path = "Pods/Target Support Files/Pods-Rainy/Pods-Rainy.release.xcconfig"; sourceTree = "<group>"; };
 		A34481B21E8E732C8A2F6650 /* Pods-Rainy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rainy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Rainy/Pods-Rainy.debug.xcconfig"; sourceTree = "<group>"; };
+		E10D115A1FA32EC900649D1F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F4EA8E15D92D5168D0F28BAE /* Pods_Rainy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rainy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -82,6 +84,7 @@
 				7B11FC411DB53A6900FA6122 /* HomeWeatherViewController.swift */,
 				7B6469FA1DC643AE00AA44F2 /* SettingsViewController.swift */,
 				7B11FC531DB540E900FA6122 /* WeatherForecast.swift */,
+				E10D115A1FA32EC900649D1F /* Constants.swift */,
 				7B11FC431DB53A6900FA6122 /* Main.storyboard */,
 				7B11FC461DB53A6900FA6122 /* Assets.xcassets */,
 				7B11FC481DB53A6900FA6122 /* LaunchScreen.storyboard */,
@@ -249,6 +252,7 @@
 				7B11FC3E1DB53A6900FA6122 /* AppDelegate.swift in Sources */,
 				7B11FC401DB53A6900FA6122 /* CurrentWeatherViewController.swift in Sources */,
 				7B6469FB1DC643AE00AA44F2 /* SettingsViewController.swift in Sources */,
+				E10D115B1FA32EC900649D1F /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

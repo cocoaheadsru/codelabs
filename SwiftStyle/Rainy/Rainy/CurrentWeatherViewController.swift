@@ -11,8 +11,6 @@ import CoreLocation
 import Alamofire
 import SwiftyJSON
 
-
-
 struct coords{
     var lat: Double = 0
     var lon: Double = 0
@@ -63,7 +61,7 @@ class CurrentWeatherViewController: UIViewController, CLLocationManagerDelegate 
         locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
-        if(CLLocationManager.authorizationStatus() == .notDetermined){
+        if(CLLocationManager.authorizationStatus() == .notDetermined) {
             locationManager.requestWhenInUseAuthorization()
         }
         
@@ -80,7 +78,7 @@ class CurrentWeatherViewController: UIViewController, CLLocationManagerDelegate 
             locationManager.requestWhenInUseAuthorization()
         }
         
-        if CLLocationManager.locationServicesEnabled(){
+        if CLLocationManager.locationServicesEnabled() {
             locationManager.startUpdatingLocation()
         }
         updateCurrentForecast()
@@ -100,24 +98,24 @@ class CurrentWeatherViewController: UIViewController, CLLocationManagerDelegate 
 
 
     private func updateCurrentForecast(){
-      Alamofire.request("http://api.openweathermap.org/data/2.5/weather",method: .get,parameters: ["lat":myCoords.lat,"lon": myCoords.lon,"APPID": "","units":"metric"],encoding: JSONEncoding.default,headers: nil).responseJSON{response in
+      Alamofire.request(URL.weatherURL, method: .get,parameters: [paramKeys.latitude:myCoords.lat,paramKeys.longtitude: myCoords.lon,paramKeys.addId: "",paramKeys.units:paramValues.metric],encoding: JSONEncoding.default,headers: nil).responseJSON{response in
                 guard response.result.isSuccess else{
                     return
                 }
                 let json = JSON(response.result.value!)
-                self.currentForecast = WeatherForecast(currentWeatherTempurature: round(10 * json["main"]["temp"].doubleValue) / 10,
+                self.currentForecast = WeatherForecast(currentWeatherTempurature: round(10 * json[jsonTags.jsonMain][jsonTags.temperature].doubleValue) / 10,
                                                                timeStamp: self.getCurrentTime(),
-                                                               imageName: json["weather"][0]["icon"].string!,
+                                                               imageName: json[jsonTags.jsonMain][0][jsonTags.icon].string!,
                                                                locationCoordinates: (self.myCoords.lat, self.myCoords.lon),
-                                                               humidity: json["main"]["humidity"].int,
-                                                               pressure: json["main"]["pressure"].int,
+                                                               humidity: json[jsonTags.jsonMain][jsonTags.humidity].int,
+                                                               pressure: json[jsonTags.jsonMain]["pressure"].int,
                                                                wind: round(10 * json["wind"]["speed"].doubleValue) / 10, cityName: json["name"].string,
                                                                stateWeather: json["weather"][0]["description"].string)
         }
     }
     
     private func getTrafficInformation(){
-        Alamofire.request("http://www.mapquestapi.com/traffic/v2/incidents",
+        Alamofire.request(URL.trafficURL,
                           parameters: ["boundingBox": "\(myCoords.lat),\(myCoords.lon),\(myCoords.lat - 1),\(myCoords.lon - 1)",
                                        "key": ""])
             .responseJSON{response in
