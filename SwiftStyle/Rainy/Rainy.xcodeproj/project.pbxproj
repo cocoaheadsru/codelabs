@@ -146,7 +146,7 @@
 				TargetAttributes = {
 					7B11FC391DB53A6900FA6122 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = KH2KDZEEE3;
+						DevelopmentTeam = DJ22U4RTFT;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
@@ -387,7 +387,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = KH2KDZEEE3;
+				DEVELOPMENT_TEAM = DJ22U4RTFT;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/SwiftOpenWeatherMapAPI",
@@ -408,7 +408,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = KH2KDZEEE3;
+				DEVELOPMENT_TEAM = DJ22U4RTFT;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/SwiftOpenWeatherMapAPI",
